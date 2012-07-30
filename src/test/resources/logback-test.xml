@@ -1,0 +1,29 @@
+<configuration scan="true">
+
+	<!-- This configuration is used when running tests (both in Eclipse and 
+		with Maven) -->
+	<property name="common.log.date.format" value="{MM/dd HH:mm:ss:SSS}" />
+	<property name="common.log.conversionpattern"
+		value="[%d${common.log.date.format}] [%t] [%c{0}] [%p]: %m%n" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${common.log.conversionpattern}</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<logger name="org.hibernate.SQL" level="ALL" />
+	<!-- show parameter bindings values -->
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder"
+		level="ALL" />
+	<logger name="org.hibernate.type.EnumType" level="ALL" />
+
+
+	<logger name="org.hibernate" level="OFF" />
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
